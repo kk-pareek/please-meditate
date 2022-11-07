@@ -24,7 +24,7 @@ export class VideoCardTileComponent implements OnInit {
   }
 
   fetchVideoDetails() {
-    const requestUrl = `http://www.youtube.com/oembed?url=${this.videoUrl}&format=json`;
+    const requestUrl = `https://www.youtube.com/oembed?url=${this.videoUrl}&format=json`;
     this.httpClient.get<any>(requestUrl).subscribe((response) => {
       this.videoTitle = response.title.split('  ')[0];
       this.videoTitle = this.videoTitle.split(' | ')[0];
