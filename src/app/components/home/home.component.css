@@ -1,0 +1,24 @@
+.welcome-message {
+    text-align: center;
+}
+
+h1 {
+    color: #293462;
+    font-family: ui-monospace;
+}
+
+.section {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}

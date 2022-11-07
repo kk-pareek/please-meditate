@@ -1,0 +1,41 @@
+<mat-card-title class="parent-card-title" fxLayout="column" fxLayoutAlign="center center">
+    <img src="../../../../assets/meditation-icon.png" alt="">
+    Guided Meditations
+</mat-card-title>
+<section fxLayout="column" fxLayoutAlign="center center">
+    <mat-card class="parent-card">
+        <div class="row">
+            <!-- <div class="col-md-1"></div> -->
+            <div fxLayout="row" fxLayoutAlign="center center" class="col-md-12 filter-div">
+                <mat-form-field appearance="standard">
+                    <mat-label>Select Language</mat-label>
+                    <mat-select class="dropdown" [(value)]="selectedLanguage">
+                        <mat-option (click)="applyFilter()" *ngFor="let language of languages" [value]="language">
+                            {{language}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <mat-form-field appearance="standard">
+                    <mat-label>Select Duration</mat-label>
+                    <mat-select [(value)]="selectedDuration">
+                        <mat-option (click)="applyFilter()" *ngFor="let duration of durations" [value]="duration">
+                            {{duration}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+            <section>
+                <div *ngFor="let meditation of filteredMeditations; let i=index;">
+                    <app-video-card-tile [videoUrl]="meditation.url" [videoDuration]="meditation.duration"
+                        [videoLanguage]="meditation.language"></app-video-card-tile>
+                </div>
+            </section>
+        </mat-card-content>
+    </mat-card>
+</section>

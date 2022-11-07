@@ -1,0 +1,35 @@
+/* .thumbnail {
+    width: 150px;
+    height: 100px;
+} */
+
+.mat-card {
+    width: 500px;
+    /* height: 100%; */
+}
+
+.mat-card-content {
+    align-items: center;
+}
+
+.thumbnail-parent {
+    /* position: relative; */
+}
+
+.play-icon {
+    margin-bottom: 2px;
+}
+
+.mat-card {
+    width: 550px;
+}
+
+.mat-card-title {
+    line-height: 1.2;
+}
+
+@media only screen and (max-width: 500px) {
+    .mat-card {
+        width: auto;
+    }
+  }

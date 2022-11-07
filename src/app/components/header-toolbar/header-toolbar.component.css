@@ -1,0 +1,30 @@
+a, ul {
+    text-decoration: none;
+    list-style-type: none;
+    color: white;
+}
+
+/* .logo {
+    width: 110px;
+    height: 35px;
+    margin-left: 20px;
+    margin-bottom: 7px;
+    margin-top: 7px;
+} */
+
+.app {
+    margin-top: 18px;
+}
+
+img {
+    width: 45px;
+    height: 45px;
+}
+
+.toolbar {
+    background-color: #3a4a8a;
+}
+
+.please-meditate {
+    margin-top: 25px;
+}
