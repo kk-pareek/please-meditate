@@ -1,0 +1,94 @@
+<!-- Meditation PNG with page title -->
+<section class="top-section">
+    <mat-card-title class="parent-card-title" fxLayout="column" fxLayoutAlign="center center">
+        <img width="50px" height="50px" src="../../../../assets/meditation-icon.png" alt="">
+        <h2>Frequently Asked Questions</h2>
+    </mat-card-title>
+</section>
+
+<!-- Parent Section -->
+<section class="faqs-section" fxLayout="column" fxLayoutAlign="center center">
+    <mat-card class="parent-card">
+
+        <!-- Render of the list of questions -->
+        <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+            <section>
+                <mat-accordion class="example-headers-align" multi>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="faq-question">
+                                What is Meditation?
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <h3 class="faq-answer">Meditation is the way to take deep rest and be alert & conscious at the
+                            same time! It is the skill to calm the mind and get in touch with your inner joy.
+                            <br>-- Gurudev Sri Sri Ravi Shankar
+                        </h3>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="faq-question">
+                                Why to meditate?
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <h3 class="faq-answer">Meditating makes you feel good, rest everything is complementary. Here
+                            are a few
+                            advantages:<br>
+                            <ol>
+                                <li>Reduces Stress</li>
+                                <li>Helps overcome Anxiety & Depression</li>
+                                <li>Provides more Energy & Efficiency</li>
+                                <li>Improves Focus, Attention, and Memory</li>
+                                <li>Improves relationships</li>
+                                <li>Teaches you to let go and be firm</li>
+                                <li>Overall it transforms a human being, gradually and deeply, into a beautiful and
+                                    happy individual</li>
+                            </ol>
+                        </h3>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="faq-question">
+                                What is the best time to Meditate?
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <h3 class="faq-answer">
+                            Meditation is best done empty stomach. <br>
+                            Before breakfast/dinner in morning/evening should be fine as per your routine.
+                        </h3>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="faq-question">
+                                How long should a meditation session last?
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <h3 class="faq-answer">
+                            Meditation is not something you should worry about timing.
+                            <br>Initially you can start with as less as 10-15 minutes, and go beyond gradually with
+                            peace.
+                        </h3>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="faq-question">
+                                I am too young and not so stressed. Do I need to meditate?
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <h3 class="faq-answer">
+                            It’s great that you are not stressed right now. However, with time and age, your work and
+                            responsibilities will increase in life. Instead of waiting to become stressed at that time
+                            and then dealing with it, wouldn’t it be a good idea to prepare yourself? After all, when
+                            you have annual exams at the end of the year, you don’t wait till the exam is upon you to
+                            start studying, do you? You also don’t wait till your savings are over before you start
+                            earning money. You prepare in advance. Similarly, how about building those inner reserves of
+                            resilience and strength with some techniques that will teach you how to handle stress even
+                            before it arises?
+                        </h3>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </section>
+        </mat-card-content>
+    </mat-card>
+    <button style="margin-bottom: 50px;" (click)="onSubmitQuestionsClick()" mat-raised-button color="primary">Submit Your Questions</button>
+</section>

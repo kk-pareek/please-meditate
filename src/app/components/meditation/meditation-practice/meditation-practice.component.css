@@ -1,22 +1,3 @@
-.parent-card {
-    /* width: 1000px; */
-    /* background-color: orange; */
-    max-height: 75vh;
-    overflow-y: scroll;
-    padding: 20px;
-    width: auto;
-}
-
-@media only screen and (max-width: 500px) {
-    .parent-card {
-        width: auto;
-    }
-}
-
-.parent-card-title {
-    margin-bottom: 35px;
-}
-
 .title-with-emoji {
     position: fixed;
 }
@@ -24,5 +5,25 @@
 img {
     width: 50px;
     height: 50px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
+
+.suggest-me {
+    color: #3a4a8a;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.refresh {
+    color: #3a4a8a;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+/* .mat-select {
+    width: auto;
+} */
+/* h2 {
+    color: black !important;
+} */
+

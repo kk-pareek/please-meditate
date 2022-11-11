@@ -21,9 +21,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 
 
 const matModules = [
+  MatExpansionModule,
   MatSliderModule,
   MatFormFieldModule,
   MatInputModule,

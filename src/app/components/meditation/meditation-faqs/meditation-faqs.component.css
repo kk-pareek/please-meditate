@@ -1,0 +1,32 @@
+h3 {
+    margin-top: 15px;
+}
+
+.mat-expansion-panel-header.mat-expanded {
+    background-color: #AEBDCA !important;
+}
+
+.mat-expansion-panel {
+    max-width: 700px !important;
+}
+
+.mat-expansion-panel-header {
+    min-height: 55px !important;
+}
+
+.parent-card {
+    /* padding-top: 50px !important; */
+    padding-bottom: 50px !important;
+}
+
+/* section {
+    margin-top: 0px;
+}
+
+.top-section {
+    margin-top: 20px !important;
+} */
+
+.faqs-section {
+    margin-top: 0px !important;
+}

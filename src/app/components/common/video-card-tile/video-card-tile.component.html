@@ -1,5 +1,8 @@
 <div>
     <mat-card class="mat-card" fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="left center" *ngIf="showLoader" class="spinner">
+            <mat-spinner [diameter]="35"></mat-spinner>
+        </div>
         <mat-card-title-group>
             <mat-card-title class="mat-card-title">{{videoTitle}}</mat-card-title>
             <mat-card-subtitle>~{{videoDuration}} min | {{videoLanguage}}</mat-card-subtitle>

@@ -1,11 +1,11 @@
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1000px) {
     iframe {
-        width: 220;
-        height: 110;
+        width: 230px !important;
+        height: auto !important;
     }
 }
 
 iframe {
-    width: auto;
-    height: auto;
+    width: 853px;
+    height: 505px;
 }

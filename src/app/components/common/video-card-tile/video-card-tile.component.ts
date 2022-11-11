@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogModalComponent } from '../dialog-modal/dialog-modal.component';
+import { UiService } from '../ui.service';
 
 @Component({
   selector: 'app-video-card-tile',
@@ -14,11 +15,13 @@ export class VideoCardTileComponent implements OnInit {
   @Input() videoLanguage: any;
   videoTitle!: any;
   videoThumbnail!: any;
+  showLoader = false;
 
 
-  constructor(private dialog: MatDialog, private httpClient: HttpClient) { }
+  constructor(private dialog: MatDialog, private httpClient: HttpClient, private uiService: UiService) { }
 
   ngOnInit(): void {
+    this.showLoader = true;
     this.fetchVideoDetails();
     this.fetchVideoThumbnail();
   }
@@ -29,6 +32,10 @@ export class VideoCardTileComponent implements OnInit {
       this.videoTitle = response.title.split('  ')[0];
       this.videoTitle = this.videoTitle.split(' | ')[0];
       this.videoTitle = this.videoTitle.split(' - ')[0];
+      if (this.videoTitle.toString().length > 45) {
+        this.videoTitle = this.videoTitle.toString().substring(0, 44) + '...';
+      }
+      this.showLoader = false;
     });
   }
 

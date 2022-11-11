@@ -1,12 +1,20 @@
-<mat-card-title class="parent-card-title" fxLayout="column" fxLayoutAlign="center center">
-    <img src="../../../../assets/meditation-icon.png" alt="">
-    Guided Meditations
-</mat-card-title>
+<!-- Meditation PNG with page title -->
+<section>
+    <mat-card-title class="parent-card-title" fxLayout="column" fxLayoutAlign="center center">
+        <img src="../../../../assets/meditation-icon.png" alt="">
+        Guided Meditations
+    </mat-card-title>
+</section>
+
+<!-- Parent Section -->
 <section fxLayout="column" fxLayoutAlign="center center">
     <mat-card class="parent-card">
-        <div class="row">
-            <!-- <div class="col-md-1"></div> -->
-            <div fxLayout="row" fxLayoutAlign="center center" class="col-md-12 filter-div">
+
+        <!-- Filter checkboxes and Refresh/SuggestMe buttons -->
+        <div class="filter-div" fxLayout="column" fxLayoutAlign="center center">
+
+            <!-- Filter Checkboxes -->
+            <div fxLayout="row" fxLayoutAlign="center center">
                 <mat-form-field appearance="standard">
                     <mat-label>Select Language</mat-label>
                     <mat-select class="dropdown" [(value)]="selectedLanguage">
@@ -15,10 +23,7 @@
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp;
                 <mat-form-field appearance="standard">
                     <mat-label>Select Duration</mat-label>
                     <mat-select [(value)]="selectedDuration">
@@ -28,12 +33,50 @@
                     </mat-select>
                 </mat-form-field>
             </div>
+
+            <!-- Refresh / SuggestMe -->
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <div fxLayout="column" fxLayoutAlign="center center" class="refresh">
+                    <svg fill="currentColor" (click)="refreshFilter()" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                        viewBox="0 0 24 24">
+                        <path d="M20.944 12.979c-.489 4.509-4.306 8.021-8.944 8.021-2.698 0-5.112-1.194-6.763-3.075l1.245-1.633c1.283 1.645 3.276 2.708 5.518 2.708 3.526 0 6.444-2.624 6.923-6.021h-2.923l4-5.25 4 5.25h-3.056zm-15.864-1.979c.487-3.387 3.4-6 6.92-6 2.237 0 4.228 1.059 5.51 2.698l1.244-1.632c-1.65-1.876-4.061-3.066-6.754-3.066-4.632 0-8.443 3.501-8.941 8h-3.059l4 5.25 4-5.25h-2.92z" />
+                    </svg>
+                    <h2>Refresh</h2>
+                </div>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <div fxLayout="column" fxLayoutAlign="center center" class="suggest-me">
+                    <svg (click)="suggestMeClicked()" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                        fill="currentColor" class="bi bi-lightbulb" viewBox="0 0 16 16">
+                        <path
+                            d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z" />
+                    </svg>
+                    <h2>Suggest Me</h2>
+                </div>
+            </div>
         </div>
+
+        <!-- Shows loader if API call is in progress -->
+        <div *ngIf="showLoader" style="margin-top: 20px;" fxLayout="column" fxLayoutAlign="center center"
+            class="spinner">
+            <mat-spinner></mat-spinner>
+        </div>
+
+        <!-- Render of the list of meditations -->
         <mat-card-content fxLayout="column" fxLayoutAlign="center center">
             <section>
+
+                <!-- Rendering meditations with *ngFor loop -->
                 <div *ngFor="let meditation of filteredMeditations; let i=index;">
                     <app-video-card-tile [videoUrl]="meditation.url" [videoDuration]="meditation.duration"
-                        [videoLanguage]="meditation.language"></app-video-card-tile>
+                        [videoLanguage]="meditation.language">
+                    </app-video-card-tile>
+                </div>
+
+                <!-- In case no meditations found for current filter -->
+                <div *ngIf="filteredMeditations && filteredMeditations.length < 1">
+                    <h2 class="text-center" style="margin-top: 15px;">
+                        Sorry, we did not find what you are looking for. Please Refresh!
+                    </h2>
                 </div>
             </section>
         </mat-card-content>
