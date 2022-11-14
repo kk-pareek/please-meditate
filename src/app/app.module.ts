@@ -21,6 +21,10 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { MeditationService } from './components/meditation/meditation.service';
+import { UiService } from './components/common/ui.service';
+import { MeditationFaqsComponent } from './components/meditation/meditation-faqs/meditation-faqs.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,9 @@ import { HttpClientModule } from '@angular/common/http';
     MeditationReadComponent,
     MeditationPracticeComponent,
     VideoCardTileComponent,
-    DialogModalComponent
+    DialogModalComponent,
+    MeditationFaqsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +50,10 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireAuthModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    MeditationService,
+    UiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,12 @@
 .meditation {
-    margin-top: 3px;
+    margin-top: 0px;
 }
+
+/* .mat-tab-header {
+    top: 64px;
+    z-index: 1000; 
+    position: sticky;
+    position: -webkit-sticky;
+    background-color: white; 
+} */
 

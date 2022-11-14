@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UiService } from '../common/ui.service';
 import { MeditationService } from './meditation.service';
 
 @Component({
@@ -9,10 +10,9 @@ import { MeditationService } from './meditation.service';
 export class MeditationComponent implements OnInit {
   guidedMeditations: any;
 
-  constructor(private meditationService: MeditationService) { }
+  constructor(private meditationService: MeditationService, private uiService: UiService) { }
 
   ngOnInit(): void {
-    this.meditationService.fetchDefaultGuidedMeditations();
   }
 
 }

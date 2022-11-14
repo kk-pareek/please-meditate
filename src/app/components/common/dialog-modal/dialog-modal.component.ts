@@ -9,13 +9,18 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class DialogModalComponent implements OnInit, AfterViewInit {
   videoUrl!: SafeResourceUrl;
+  showQuestionsForm = false;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     public domSanitizer: DomSanitizer) { }
 
 
   ngOnInit(): void {
-    this.setCurrentVideoUrl();
+    if (this.data.showQuestionsForm) {
+      this.showQuestionsForm = true;
+    } else {
+      this.setCurrentVideoUrl();
+    }
   }
 
   ngAfterViewInit(): void {

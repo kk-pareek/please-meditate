@@ -1,4 +1,6 @@
-<iframe [src]="videoUrl"
-    allowfullscreen frameborder="0" [scrolling]="false">
+<iframe *ngIf="!showQuestionsForm" [src]="videoUrl" allowfullscreen frameborder="0" [scrolling]="false">
 </iframe>
 
+<iframe *ngIf="showQuestionsForm"
+    src="https://docs.google.com/forms/d/e/1FAIpQLSfdAetwF0qYDuO2XVdu5o6t7YYwHuFHmzKhA9iqi2HHn7x9PA/viewform?embedded=true"
+    width="640" height="614" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
