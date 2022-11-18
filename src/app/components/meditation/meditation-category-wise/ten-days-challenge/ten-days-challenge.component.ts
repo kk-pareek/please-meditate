@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MeditationService } from '../../meditation.service';
 
 @Component({
   selector: 'app-ten-days-challenge',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TenDaysChallengeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private meditationService: MeditationService) { 
+    this.meditationService.pageTitleSubject.next('10 Days Challenge');
+  }
 
   ngOnInit(): void {
   }

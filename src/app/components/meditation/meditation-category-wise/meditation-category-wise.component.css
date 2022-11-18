@@ -56,3 +56,7 @@
   background-color: white; */
   transform: scale(1.1);
 }
+
+.btn-primary {
+  margin-top: 10px;
+}

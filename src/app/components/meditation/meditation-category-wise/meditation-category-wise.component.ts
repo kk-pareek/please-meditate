@@ -1,3 +1,4 @@
+import { MeditationService } from './../meditation.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +10,7 @@ export class MeditationCategoryWiseComponent implements OnInit {
   showCategories = true;
   selectedCategory = null;
   
-  constructor() { }
+  constructor(private meditationService: MeditationService) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +24,7 @@ export class MeditationCategoryWiseComponent implements OnInit {
   backButtonHandler() {
     this.selectedCategory = null;
     this.showCategories = true;
+    this.meditationService.pageTitleSubject.next('Guided Meditations');
   }
 
   categories = [

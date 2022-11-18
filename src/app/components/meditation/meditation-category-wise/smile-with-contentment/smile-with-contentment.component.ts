@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MeditationService } from '../../meditation.service';
 
 @Component({
   selector: 'app-smile-with-contentment',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SmileWithContentmentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private meditationService: MeditationService) { 
+    this.meditationService.pageTitleSubject.next('Smile With Contentment');
+  }
 
   ngOnInit(): void {
   }

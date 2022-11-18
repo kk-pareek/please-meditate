@@ -1,3 +1,4 @@
+import { MeditationService } from './../../meditation.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FindBalanceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private meditationService: MeditationService) { 
+    this.meditationService.pageTitleSubject.next('Find Balance')
+  }
 
   ngOnInit(): void {
   }

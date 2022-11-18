@@ -13,6 +13,7 @@ export class VideoCardTileComponent implements OnInit {
   @Input() videoUrl: any;
   @Input() videoDuration: any;
   @Input() videoLanguage: any;
+  @Input() videoIndex: any;
   videoTitle!: any;
   videoThumbnail!: any;
   showLoader = false;
@@ -33,11 +34,12 @@ export class VideoCardTileComponent implements OnInit {
     const requestUrl = `https://www.youtube.com/oembed?url=${this.videoUrl}&format=json`;
     this.httpClient.get<any>(requestUrl).subscribe((response) => {
       this.videoTitle = response.title.split('  ')[0];
-      this.videoTitle = this.videoTitle.split(' | ')[0];
-      this.videoTitle = this.videoTitle.split(' - ')[0];
-      if (this.videoTitle.toString().length > 45) {
-        this.videoTitle = this.videoTitle.toString().substring(0, 44) + '...';
+      // this.videoTitle = this.videoTitle.split(' | ')[0];
+      // this.videoTitle = this.videoTitle.split(' - ')[0];
+      if (this.videoTitle.toString().length > 42) {
+        this.videoTitle = this.videoTitle.toString().substring(0, 41) + '...';
       }
+      this.videoTitle = '' + (this.videoIndex+1) + '. ' + this.videoTitle;
       this.showLoader = false;
     });
   }

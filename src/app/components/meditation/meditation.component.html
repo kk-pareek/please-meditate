@@ -2,7 +2,8 @@
 <section>
     <mat-card-title class="parent-card-title" fxLayout="column" fxLayoutAlign="center center">
         <img src="../../../../assets/meditation-icon.png" alt="">
-        Guided Meditations
+        {{getPageTitle()}}
+        <span *ngIf="pageTitle != 'Guided Meditations'">{{description}}</span>
     </mat-card-title>
 </section>
 

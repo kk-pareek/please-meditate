@@ -18,6 +18,20 @@ img {
     margin-bottom: 15px;
 }
 
+.refresh:hover
+.refresh:active{
+    transform: scale(0.9);
+}
+
+.suggest-me:hover
+.suggest-me:active{
+    transform: scale(0.9);
+}
+
+.parent-card {
+    background-color: #eaf2fc;
+}
+
 /* .mat-select {
     width: auto;
 } */

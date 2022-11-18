@@ -5,6 +5,7 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
+import { async } from '@firebase/util';
 import { UiService } from '../../common/ui.service';
 import { MeditationService } from '../meditation.service';
 
@@ -15,6 +16,7 @@ import { MeditationService } from '../meditation.service';
 })
 export class MeditationPracticeComponent implements OnInit, AfterViewInit {
   @Input() guidedMeditations: any;
+  @Input() meditationCategory: any;
   filteredMeditations: any;
   showLoader = this.uiService.isLoading;
   languages = ['Hindi', 'English', 'All'];
@@ -23,36 +25,6 @@ export class MeditationPracticeComponent implements OnInit, AfterViewInit {
   selectedLanguage = 'All';
   selectedDuration = 'All';
   suggestedMeditation: any;
-  categories = [
-    {
-      name: 'Find Balance',
-      description: 'Achieve a balanced state of energy with guided chakra meditations.'
-    },
-    {
-      name: 'Mini Meditations',
-      description: 'Shorter meditations to let go of stress, and gain confidence.'
-    },
-    {
-      name: '10 Days Challenge',
-      description: 'Are you consistent enough?'
-    },
-    {
-      name: 'Smile With Contentment',
-      description: 'Just smile and let go.'
-    },
-    {
-      name: 'Yog Nidra',
-      description: 'Instantly recharges and brings an incredible quietness and clarity within you.'
-    },
-    {
-      name: 'Chanting Meditation',
-      description: 'Go within & heal. Chanting sacred mantras stimulate brain areas associated with calm.'
-    },
-    {
-      name: 'Heal With Music',
-      description: 'Meditate with the perfect relaxing music to experience complete emptiness.'
-    }
-  ];
 
   constructor(
     private meditationService: MeditationService,
@@ -62,8 +34,11 @@ export class MeditationPracticeComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.meditationService.fetchMeditationsSubject.subscribe(
-      (guidedMeditations) => {
-        this.guidedMeditations = guidedMeditations;
+      async (guidedMeditations) => {
+        this.guidedMeditations = await guidedMeditations.filter((meditation: any) => {
+          return meditation.category === this.meditationCategory;
+        });
+        this.guidedMeditations = await this.guidedMeditations.sort(this.compare);
         this.filteredMeditations = this.guidedMeditations;
       }
     );
@@ -75,6 +50,17 @@ export class MeditationPracticeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {}
+
+  compare(a: any, b: any) {
+    console.log('comparing');
+    if ( a.order < b.order ){
+      return -1;
+    }
+    if ( a.order > b.order ){
+      return 1;
+    }
+    return 0;
+  }
 
   filterByLanguage(meditation: any) {
     return (

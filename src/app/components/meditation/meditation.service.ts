@@ -14,6 +14,7 @@ export class MeditationService {
   date = new Date();
   previousDate = new Date();
   currentDate = `${this.date.getDate()}-${this.date.getMonth()+1}-${this.date.getFullYear()}`;
+  pageTitleSubject = new Subject<any>();
 
   constructor(private db: AngularFirestore, private uiService: UiService) { }
 
@@ -25,7 +26,9 @@ export class MeditationService {
             id: responseArrayElement.payload.doc.id,
             url: responseArrayElement.payload.doc.data().url,
             duration: responseArrayElement.payload.doc.data().duration,
-            language: responseArrayElement.payload.doc.data().language
+            language: responseArrayElement.payload.doc.data().language,
+            category: responseArrayElement.payload.doc.data().category,
+            order: responseArrayElement.payload.doc.data().order
           }
         })
       })).subscribe((guidedMeditaions: any) => {

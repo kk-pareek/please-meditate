@@ -9,10 +9,19 @@ import { MeditationService } from './meditation.service';
 })
 export class MeditationComponent implements OnInit {
   guidedMeditations: any;
+  pageTitle = 'Guided Meditations';
+  description = 'Category-wise Meditations';
 
   constructor(private meditationService: MeditationService, private uiService: UiService) { }
 
   ngOnInit(): void {
+    this.meditationService.pageTitleSubject.subscribe((pageTitle) => {
+      this.pageTitle = pageTitle;
+    });
+  }
+
+  getPageTitle() {
+    return this.pageTitle;
   }
 
 }
