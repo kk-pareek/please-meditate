@@ -33,13 +33,12 @@ export class VideoCardTileComponent implements OnInit {
   fetchVideoDetails() {
     const requestUrl = `https://www.youtube.com/oembed?url=${this.videoUrl}&format=json`;
     this.httpClient.get<any>(requestUrl).subscribe((response) => {
-      this.videoTitle = response.title.split('  ')[0];
-      // this.videoTitle = this.videoTitle.split(' | ')[0];
-      // this.videoTitle = this.videoTitle.split(' - ')[0];
+      this.videoTitle = response.title;
       if (this.videoTitle.toString().length > 42) {
         this.videoTitle = this.videoTitle.toString().substring(0, 41) + '...';
       }
       this.videoTitle = '' + (this.videoIndex+1) + '. ' + this.videoTitle;
+
       this.showLoader = false;
     });
   }
@@ -62,7 +61,6 @@ export class VideoCardTileComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log(result);
       } else {
       }
     });

@@ -28,7 +28,7 @@
 
 .mat-card-title {
     line-height: 1.2;
-    
+    text-transform: capitalize;
 }
 
 @media only screen and (max-width: 500px) {

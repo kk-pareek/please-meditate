@@ -52,7 +52,6 @@ export class MeditationPracticeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {}
 
   compare(a: any, b: any) {
-    console.log('comparing');
     if ( a.order < b.order ){
       return -1;
     }
@@ -116,7 +115,6 @@ export class MeditationPracticeComponent implements OnInit, AfterViewInit {
   }
 
   // pageChanged(event: any) {
-  //   console.log(event);
   //   if (!event.calledFromFilter) {
   //     this.applyFilter();
   //   }

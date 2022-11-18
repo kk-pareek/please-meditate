@@ -38,7 +38,6 @@ export class MeditationService {
         this.updateLocalStorage();
       });
     } else {
-      console.log('call not made');
       this.uiService.isLoadingSubject.next(false);
       this.fetchedMeditations = localStorage.getItem(this.currentDate);
       this.fetchedMeditations = JSON.parse(this.fetchedMeditations);

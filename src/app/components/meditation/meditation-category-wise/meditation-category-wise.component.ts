@@ -16,7 +16,6 @@ export class MeditationCategoryWiseComponent implements OnInit {
   }
 
   showCategoriesScreenToggler(category: any) {
-    console.log(category);
     this.showCategories = !this.showCategories;
     this.selectedCategory = category.name;
   }
