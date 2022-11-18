@@ -5,6 +5,8 @@ body {
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif; 
     /* background-color: rgb(235, 63, 63); */
+    /* background-color: #f3f7fc; */
+    background-color: #e8eff7;
 }
 
 
@@ -68,15 +70,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
     /* width: 1000px */
 }
 
-@media only screen and (max-width: 500px) {
-    .mat-form-field {
-        width: 120px;
-    }
-}
+
 
 @media only screen and (max-width: 1000px) {
     .parent-card {
         width: auto;
+    }
+    .mat-form-field {
+        width: 120px;
     }
 }
 
@@ -93,3 +94,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 }
 
 
+/* .mat-grid-tile .mat-figure {
+    justify-content: flex-start !important ;
+    align-items: flex-start !important;
+ } */

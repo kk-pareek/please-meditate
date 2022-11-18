@@ -7,7 +7,7 @@ import { UiService } from '../ui.service';
 @Component({
   selector: 'app-video-card-tile',
   templateUrl: './video-card-tile.component.html',
-  styleUrls: ['./video-card-tile.component.css']
+  styleUrls: ['./video-card-tile.component.css'],
 })
 export class VideoCardTileComponent implements OnInit {
   @Input() videoUrl: any;
@@ -17,8 +17,11 @@ export class VideoCardTileComponent implements OnInit {
   videoThumbnail!: any;
   showLoader = false;
 
-
-  constructor(private dialog: MatDialog, private httpClient: HttpClient, private uiService: UiService) { }
+  constructor(
+    private dialog: MatDialog,
+    private httpClient: HttpClient,
+    private uiService: UiService
+  ) {}
 
   ngOnInit(): void {
     this.showLoader = true;
@@ -51,15 +54,15 @@ export class VideoCardTileComponent implements OnInit {
   showVideoIframe() {
     const dialogRef = this.dialog.open(DialogModalComponent, {
       data: {
-        videoUrl: this.videoUrl
-      }
+        videoUrl: this.videoUrl,
+      },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log(result)
+        console.log(result);
       } else {
       }
-    })
+    });
   }
 }

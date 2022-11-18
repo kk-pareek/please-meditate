@@ -1,0 +1,36 @@
+.mat-card {
+    width: 250px;
+    background-color: #deeaf8;
+    cursor: pointer;
+    color: #3a4a8a;
+}
+
+@media only screen and (max-width: 1000px) {
+    .mat-card {
+        width: 170px !important;
+    }
+
+    .mat-card-title-group {
+        min-height: 120px !important;
+    }
+}
+
+.mat-card:hover
+.mat-card:active {
+    background-color: #d4e6fa;
+}
+
+.mat-card-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.mat-card-title {
+    font-size: 18px;
+}
+
+.mat-card-title-group {
+    min-height: 100px;
+}

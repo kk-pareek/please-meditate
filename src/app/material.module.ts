@@ -22,10 +22,13 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 
 
 const matModules = [
+  MatGridListModule,
   MatExpansionModule,
   MatSliderModule,
   MatFormFieldModule,

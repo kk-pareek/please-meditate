@@ -8,6 +8,7 @@ h3 {
 
 .mat-expansion-panel {
     max-width: 700px !important;
+    background-color: #deeaf8 !important;
 }
 
 .mat-expansion-panel-header {
@@ -17,6 +18,8 @@ h3 {
 .parent-card {
     /* padding-top: 50px !important; */
     padding-bottom: 50px !important;
+    background-color: #eaf2fc;
+
 }
 
 /* section {

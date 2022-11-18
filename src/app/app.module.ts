@@ -25,6 +25,16 @@ import { MeditationService } from './components/meditation/meditation.service';
 import { UiService } from './components/common/ui.service';
 import { MeditationFaqsComponent } from './components/meditation/meditation-faqs/meditation-faqs.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { CategoryTileComponent } from './components/common/category-tile/category-tile.component';
+import { MeditationCategoryWiseComponent } from './components/meditation/meditation-category-wise/meditation-category-wise.component';
+import { FindBalanceComponent } from './components/meditation/meditation-category-wise/find-balance/find-balance.component';
+import { TenDaysChallengeComponent } from './components/meditation/meditation-category-wise/ten-days-challenge/ten-days-challenge.component';
+import { MiniMeditationsComponent } from './components/meditation/meditation-category-wise/mini-meditations/mini-meditations.component';
+import { TransformingEmotionsComponent } from './components/meditation/meditation-category-wise/transforming-emotions/transforming-emotions.component';
+import { SmileWithContentmentComponent } from './components/meditation/meditation-category-wise/smile-with-contentment/smile-with-contentment.component';
+import { YogNidraComponent } from './components/meditation/meditation-category-wise/yog-nidra/yog-nidra.component';
+import { ChantingMeditationComponent } from './components/meditation/meditation-category-wise/chanting-meditation/chanting-meditation.component';
+import { HealWithMusicComponent } from './components/meditation/meditation-category-wise/heal-with-music/heal-with-music.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +47,17 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     VideoCardTileComponent,
     DialogModalComponent,
     MeditationFaqsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CategoryTileComponent,
+    MeditationCategoryWiseComponent,
+    FindBalanceComponent,
+    TenDaysChallengeComponent,
+    MiniMeditationsComponent,
+    TransformingEmotionsComponent,
+    SmileWithContentmentComponent,
+    YogNidraComponent,
+    ChantingMeditationComponent,
+    HealWithMusicComponent
   ],
   imports: [
     BrowserModule,

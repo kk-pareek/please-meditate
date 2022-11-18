@@ -1,11 +1,17 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { UiService } from '../../common/ui.service';
 import { MeditationService } from '../meditation.service';
 
 @Component({
   selector: 'app-meditation-practice',
   templateUrl: './meditation-practice.component.html',
-  styleUrls: ['./meditation-practice.component.css']
+  styleUrls: ['./meditation-practice.component.css'],
 })
 export class MeditationPracticeComponent implements OnInit, AfterViewInit {
   @Input() guidedMeditations: any;
@@ -17,54 +23,99 @@ export class MeditationPracticeComponent implements OnInit, AfterViewInit {
   selectedLanguage = 'All';
   selectedDuration = 'All';
   suggestedMeditation: any;
-  paginationLength: any;
-  redirectToRefreshTimer = 3;
+  categories = [
+    {
+      name: 'Find Balance',
+      description: 'Achieve a balanced state of energy with guided chakra meditations.'
+    },
+    {
+      name: 'Mini Meditations',
+      description: 'Shorter meditations to let go of stress, and gain confidence.'
+    },
+    {
+      name: '10 Days Challenge',
+      description: 'Are you consistent enough?'
+    },
+    {
+      name: 'Smile With Contentment',
+      description: 'Just smile and let go.'
+    },
+    {
+      name: 'Yog Nidra',
+      description: 'Instantly recharges and brings an incredible quietness and clarity within you.'
+    },
+    {
+      name: 'Chanting Meditation',
+      description: 'Go within & heal. Chanting sacred mantras stimulate brain areas associated with calm.'
+    },
+    {
+      name: 'Heal With Music',
+      description: 'Meditate with the perfect relaxing music to experience complete emptiness.'
+    }
+  ];
 
-  constructor(private meditationService: MeditationService, private uiService: UiService,
-    private elementRef: ElementRef) {
-  }
+  constructor(
+    private meditationService: MeditationService,
+    private uiService: UiService,
+    private elementRef: ElementRef
+  ) {}
 
   ngOnInit(): void {
-    this.meditationService.fetchMeditationsSubject.subscribe((guidedMeditations) => {
-      this.guidedMeditations = guidedMeditations;
-      this.filteredMeditations = this.guidedMeditations;
-      // this.filteredMeditations = this.filteredMeditations.slice(0, 5);
-      // this.paginationLength = this.guidedMeditations.length;
-    });
+    this.meditationService.fetchMeditationsSubject.subscribe(
+      (guidedMeditations) => {
+        this.guidedMeditations = guidedMeditations;
+        this.filteredMeditations = this.guidedMeditations;
+      }
+    );
 
-    this.uiService.isLoadingSubject.subscribe(isLoading => {
+    this.uiService.isLoadingSubject.subscribe((isLoading) => {
       this.showLoader = isLoading;
     });
     this.meditationService.fetchDefaultGuidedMeditations();
   }
 
-  ngAfterViewInit() { }
+  ngAfterViewInit() {}
 
   filterByLanguage(meditation: any) {
-    return (this.selectedLanguage === 'All' || meditation.language.includes(this.selectedLanguage));
+    return (
+      this.selectedLanguage === 'All' ||
+      meditation.language.includes(this.selectedLanguage)
+    );
   }
 
   filterByDuration(meditation: any) {
     const selectedDurationSplit = this.selectedDuration.split(' - ');
-    return (this.selectedDuration === 'All' || (meditation.duration >= selectedDurationSplit[0] && meditation.duration <= selectedDurationSplit[1]));
+    return (
+      this.selectedDuration === 'All' ||
+      (meditation.duration >= selectedDurationSplit[0] &&
+        meditation.duration <= selectedDurationSplit[1])
+    );
   }
 
   applyFilter() {
-    this.filteredMeditations = this.guidedMeditations.filter((meditation: any) => {
-      return this.filterByDuration(meditation) && this.filterByLanguage(meditation);
-    });
+    this.filteredMeditations = this.guidedMeditations.filter(
+      (meditation: any) => {
+        return (
+          this.filterByDuration(meditation) && this.filterByLanguage(meditation)
+        );
+      }
+    );
   }
 
   getRandomBackgroundColor() {
-    return this.backgroundColors[Math.floor(Math.random() * this.backgroundColors.length)];
+    return this.backgroundColors[
+      Math.floor(Math.random() * this.backgroundColors.length)
+    ];
   }
 
   setBackgroundColorToSuggestMe() {
-    this.elementRef.nativeElement.querySelectorAll('.suggest-me')[0].style.backgroundColor = this.getRandomBackgroundColor();
+    this.elementRef.nativeElement.querySelectorAll(
+      '.suggest-me'
+    )[0].style.backgroundColor = this.getRandomBackgroundColor();
   }
 
   suggestMeClicked() {
-    const randomIndex = (Math.random() * this.guidedMeditations.length);
+    const randomIndex = Math.random() * this.guidedMeditations.length;
     this.suggestedMeditation = this.guidedMeditations[Math.floor(randomIndex)];
     this.filteredMeditations = [];
     this.filteredMeditations.push(this.suggestedMeditation);
@@ -87,14 +138,4 @@ export class MeditationPracticeComponent implements OnInit, AfterViewInit {
   //   const endIndex = startIndex + event.pageSize > this.filteredMeditations.length ? this.filteredMeditations.length: startIndex + event.pageSize;
   //   this.filteredMeditations = this.filteredMeditations.slice(startIndex, endIndex);
   // }
-
-  redirectToRefresh() {
-    let interval = setInterval(() => {
-      // if (this.redirectToRefreshTimer === 0) {
-      //   clearInterval(interval);
-      // } 
-      this.redirectToRefreshTimer -= 1;
-    },1000);
-    return true;
-  }
 }

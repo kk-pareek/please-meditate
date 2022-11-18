@@ -1,0 +1,34 @@
+<section fxLayout="column" fxLayoutAlign="center center">
+  <mat-card class="parent-card">
+    <mat-card-content *ngIf="showCategories" class="wrapper">
+      <div class="box" *ngFor="let category of categories; let i = index">
+        <app-category-tile (click)="showCategoriesScreenToggler(category)" [category]="category"></app-category-tile>
+      </div>
+    </mat-card-content>
+    <section *ngIf="!showCategories" [ngSwitch]="selectedCategory">
+      <app-find-balance *ngSwitchCase="'Find Balance'"></app-find-balance>
+      <app-yog-nidra *ngSwitchCase="'Yog Nidra'"></app-yog-nidra>
+      <app-ten-days-challenge *ngSwitchCase="'10 Days Challenge'"></app-ten-days-challenge>
+      <app-transforming-emotions *ngSwitchCase="'Alter Emotions'"></app-transforming-emotions>
+      <app-smile-with-contentment *ngSwitchCase="'Smile With Contentment'"></app-smile-with-contentment>
+      <app-mini-meditations *ngSwitchCase="'Mini Meditations'"></app-mini-meditations>
+      <app-heal-with-music *ngSwitchCase="'Heal With Music'"></app-heal-with-music>
+      <app-chanting-meditation *ngSwitchCase="'Chanting'"></app-chanting-meditation>
+      <div *ngSwitchDefault>
+        <h2 class="text-center">Something has gone wrong!</h2>
+      </div>
+    </section>
+    <div *ngIf="selectedCategory" class="back-icon-container">
+      <mat-icon (click)="backButtonHandler()" class="text-center">arrow_back</mat-icon>
+    </div>
+  </mat-card>
+</section>
+
+<!-- <div class="wrapper">
+    <div class="box a">A</div>
+    <div class="box b">B</div>
+    <div class="box c">C</div>
+    <div class="box d">D</div>
+    <div class="box e">E</div>
+    <div class="box f">F</div>
+  </div> -->
